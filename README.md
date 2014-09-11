@@ -1,6 +1,6 @@
 == README
 
-This is a readme for the 3rd chapter
+From the book templates, starting to build up a website
 
 
 
