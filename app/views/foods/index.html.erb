@@ -1,0 +1,39 @@
+<h1>Listing foods</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th>Serving size</th>
+      <th>Serving unit</th>
+      <th>Sugar</th>
+      <th>Carbohydrate</th>
+      <th>Source</th>
+      <th>Calories</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @foods.each do |food| %>
+      <tr>
+        <td><%= food.description %></td>
+        <td><%= food.serving_size %></td>
+        <td><%= food.serving_unit %></td>
+        <td><%= food.sugar %></td>
+        <td><%= food.carbohydrate %></td>
+        <td><%= food.source %></td>
+        <td><%= food.calories %></td>
+        <td><%= link_to 'Show', food %></td>
+        <td><%= link_to 'Edit', edit_food_path(food) %></td>
+        <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Food', new_food_path %>
