@@ -1,11 +1,28 @@
-<div class="center hero-unit">
-  <h1>Welcome to Rid of Sugar</h1>
+<% if signed_in? %>
+  <div class="row">
+    <aside class="span4">
+      <section>
+        <%= render 'shared/user_info' %>
+      </section>
+      <section>
+        <%= render 'shared/eat_form' %>
+      </section>
+    </aside>
+  </div>
+  <div class="span8">
+      <h3>Eaten Feed</h3>
+      <%= render 'shared/feed' %>
+  </div>
+<% else %>
+  <div class="center hero-unit">
+    <h1>Welcome to Rid of Sugar</h1>
 
-  <h2>
-  Our goal is to help you track your sugar intake on a moment-to-moment level  
-  </h2>
+    <h2>
+    Our goal is to help you track your sugar intake on a moment-to-moment level  
+    </h2>
 
-  <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
-</div>
+    <%= link_to "Sign up now!", signup_path, class: "btn btn-large btn-primary" %>
+  </div>
 
-<%= link_to image_tag("sugar_as_from_soda_can.png", size: "250x500", :class => "main_photo", alt: "Sugar"), 'http://google.com/' %>
+  <%= link_to image_tag("sugar_as_from_soda_can.png", size: "250x500", :class => "main_photo", alt: "Sugar"), 'http://google.com/' %>
+<% end %>

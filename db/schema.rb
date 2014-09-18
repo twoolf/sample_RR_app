@@ -11,7 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140915115406) do
+ActiveRecord::Schema.define(version: 20140917005749) do
+
+  create_table "eats", force: true do |t|
+    t.string   "food"
+    t.string   "amount"
+    t.integer  "carbohydrate"
+    t.integer  "sugar"
+    t.integer  "calories"
+    t.integer  "user_id"
+    t.integer  "food_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "eats", ["user_id", "created_at"], name: "index_eats_on_user_id_and_created_at"
 
   create_table "foods", force: true do |t|
     t.string   "description"

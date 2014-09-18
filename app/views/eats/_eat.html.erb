@@ -1,0 +1,28 @@
+<li>
+  <span class="time-since">
+      it has been <%= @user.days %> days
+  </span>
+  <span class="amount">
+      Adding <%= eat.amount %>
+  </span>
+  <span class="food">
+      <%= eat.food %>
+  </span>
+  <span class="carbohydrate">
+      Carbohydrate <%= eat.carbohydrate %>
+  </span>
+  <span class="sugar">
+      Sugar <%= eat.sugar %>
+  </span>
+  <span class="calories">
+      Calories <%= eat.calories %>
+  </span>
+  <span class="timestamp">
+    to my food amounts <%= time_ago_in_words(eat.created_at) %> ago from this time.
+  </span>
+  <% if current_user?(eat.user) %>
+    <%= link_to "delete", eat, method: :delete,
+                                     data: { confirm: "You sure?" },
+                                     title: eat.food %>
+  <% end %>
+</li>
