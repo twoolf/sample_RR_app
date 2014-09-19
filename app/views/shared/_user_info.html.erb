@@ -2,9 +2,15 @@
   <%= current_user.name %>
 </h1>
 <span>
-  <%= link_to "view my profile", current_user %>
+  Your sugar over the last day:
+  <%= current_user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).sum (:sugar) %>
 </span>
 <span>
-  <%= pluralize(current_user.eats.count, "Eaten") %>
+  and in Carbohydrates:
+  <%= current_user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).sum (:carbohydrate) %>
+</span>
+<span>
+  with your total Calories:
+  <%= current_user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).sum (:calories) %>
 </span>
 

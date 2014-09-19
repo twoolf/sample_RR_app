@@ -1,19 +1,19 @@
 <%= form_for(@eat) do |f| %>
   <%= render 'shared/error_messages', object: f.object %>
   <div class="field">
-    <%= f.text_area :food, placeholder: "Add eaten food item" %>
+    <%= f.text_area :food, placeholder: "Add food you will eat or have eaten" %>
   </div>
   <div class="field">
-    <%= f.text_area :amount, placeholder: "Amount" %>
-  </div>
-  <div class="field">
-    <%= f.number_field :carbohydrate, placeholder: "Carbohydrates" %>
+    <%= f.text_area :amount, placeholder: "Amount (e.g. one package, one cup)" %>
   </div>
   <div class="field">
     <%= f.number_field :sugar, placeholder: "Sugar" %>
   </div>
   <div class="field">
+    <%= f.number_field :carbohydrate, placeholder: "Carbohydrates" %>
+  </div>
+  <div class="field">
     <%= f.number_field :calories, placeholder: "Calories" %>
   </div>
-  <%= f.submit "Post", class: "btn btn-large btn-primary" %>
+  <%= f.submit "Yes - I ate this", class: "btn btn-large btn-primary" %>
 <% end %>

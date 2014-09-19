@@ -1,12 +1,9 @@
 <li>
-  <span class="time-since">
-      it has been <%= @user.days %> days
-  </span>
-  <span class="amount">
-      Adding <%= eat.amount %>
-  </span>
   <span class="food">
       <%= eat.food %>
+  </span>
+  <span class="amount">
+      (<%= eat.amount %>)
   </span>
   <span class="carbohydrate">
       Carbohydrate <%= eat.carbohydrate %>
@@ -18,7 +15,7 @@
       Calories <%= eat.calories %>
   </span>
   <span class="timestamp">
-    to my food amounts <%= time_ago_in_words(eat.created_at) %> ago from this time.
+    <%= time_ago_in_words(eat.created_at) %> ago 
   </span>
   <% if current_user?(eat.user) %>
     <%= link_to "delete", eat, method: :delete,
