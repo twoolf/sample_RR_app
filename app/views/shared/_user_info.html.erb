@@ -3,14 +3,14 @@
 </h1>
 <span>
   Your sugar over the last day:
-  <%= current_user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).sum (:sugar) %>
+  <%= current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:sugar) %>
 </span>
 <span>
   and in Carbohydrates:
-  <%= current_user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).sum (:carbohydrate) %>
+  <%= current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:carbohydrate) %>
 </span>
 <span>
   with your total Calories:
-  <%= current_user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).sum (:calories) %>
+  <%= current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:calories) %>
 </span>
 

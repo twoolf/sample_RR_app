@@ -10,15 +10,15 @@
   </aside>
   <div class="span8">
     <% if @user.eats.any? %>
-      <h2>Sugar intake over 24-hours(<%= @user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).sum (:sugar) %>)
-      Max (<%= @user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).maximum (:sugar) %>)
-      Min (<%= @user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).minimum (:sugar) %>)</h2>
-      <h2>Carbohydrates eaten over 24-hours(<%= @user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).sum (:carbohydrate) %>)
-      Max (<%= @user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).maximum (:carbohydrate) %>)
-      Min (<%= @user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).minimum (:carbohydrate) %>)</h2>
-      <h2>Calories added over 24-hours(<%= @user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).sum (:calories) %>)
-      Max (<%= @user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).maximum (:calories) %>)
-      Min (<%= @user.eats.where({ created_at: (Time.now.midnight - 1.day)..Time.now.midnight }).minimum (:calories) %>)</h2>
+      <h2>Sugar intake over 24-hours(<%= @user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:sugar) %>)
+      Max (<%= @user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).maximum (:sugar) %>)
+      Min (<%= @user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).minimum (:sugar) %>)</h2>
+      <h2>Carbohydrates eaten over 24-hours(<%= @user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:carbohydrate) %>)
+      Max (<%= @user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).maximum (:carbohydrate) %>)
+      Min (<%= @user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).minimum (:carbohydrate) %>)</h2>
+      <h2>Calories added over 24-hours(<%= @user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:calories) %>)
+      Max (<%= @user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).maximum (:calories) %>)
+      Min (<%= @user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).minimum (:calories) %>)</h2>
       <ol class="eats">
         <%= render @eats %>
       </ol>
