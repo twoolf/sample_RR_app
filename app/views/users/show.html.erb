@@ -7,8 +7,12 @@
         <%= @user.name %>
       </h1>
     </section>
+    <section>
+      <%= render 'shared/stats' %>
+    </section>
   </aside>
   <div class="span8">
+    <%= render 'follow_form' if signed_in? %>
     <% if @user.eats.any? %>
       <h2>Sugar intake over 24-hours(<%= @user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:sugar) %>)
       Max (<%= @user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).maximum (:sugar) %>)

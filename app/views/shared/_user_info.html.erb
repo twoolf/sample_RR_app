@@ -2,15 +2,18 @@
   <%= current_user.name %>
 </h1>
 <span>
-  Your sugar over the last day:
-  <%= current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:sugar) %>
+<h2>Sugar in last 24-hours(<%= @current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:sugar) %>)
+      Max (<%= @current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).maximum (:sugar) %>)
+      Min (<%= @current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).minimum (:sugar) %>)</h2>
 </span>
 <span>
-  and in Carbohydrates:
-  <%= current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:carbohydrate) %>
+<h2>and your Carbohydrates(<%= @current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:carbohydrate) %>)
+      Max (<%= @current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).maximum (:carbohydrate) %>)
+      Min (<%= @current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).minimum (:carbohydrate) %>)</h2>
 </span>
 <span>
-  with your total Calories:
-  <%= current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:calories) %>
+<h2>With your Total Calories(<%= @current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).sum (:calories) %>)
+      Max (<%= @current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).maximum (:calories) %>)
+      Min (<%= @current_user.eats.where({ created_at: (Time.now - 1.day)..Time.now }).minimum (:calories) %>)</h2>
 </span>
 
